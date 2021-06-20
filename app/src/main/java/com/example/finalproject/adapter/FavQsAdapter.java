@@ -1,5 +1,6 @@
 package com.example.finalproject.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import java.util.ArrayList;
 public class FavQsAdapter extends RecyclerView.Adapter<FavQsAdapter.viewHolder> {
 
     private ArrayList<QuotesItem> quotesItems = new ArrayList<>();
+    private Context context;
+    public FavQsAdapter (Context context){this.context = context;}
 
     public void setData(ArrayList<QuotesItem> items){
         quotesItems.clear();

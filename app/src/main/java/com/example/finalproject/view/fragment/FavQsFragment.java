@@ -2,13 +2,24 @@ package com.example.finalproject.view.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.finalproject.R;
+import com.example.finalproject.adapter.FavQsAdapter;
+import com.example.finalproject.model.QuotesItem;
+import com.example.finalproject.view.viewModel.FavQsViewModel;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +27,10 @@ import com.example.finalproject.R;
  * create an instance of this fragment.
  */
 public class FavQsFragment extends Fragment {
+
+    private FavQsAdapter favQsAdapter;
+    private RecyclerView rvFavQs;
+    private FavQsViewModel favQsViewModel;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,4 +78,30 @@ public class FavQsFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fav_qs, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        favQsAdapter = new FavQsAdapter(getContext());
+        favQsAdapter.notifyDataSetChanged();
+
+        rvFavQs = view.findViewById(R.id.fragment_fav_qs_rv);
+        rvFavQs.setLayoutManager(new GridLayoutManager(getContext(),1));
+
+        favQsViewModel = new ViewModelProvider(this).get(FavQsViewModel.class);
+        favQsViewModel.setFavQs();
+        favQsViewModel.getFavQs().observe(this,getFavQS);
+
+        rvFavQs.setAdapter(favQsAdapter);
+    }
+
+    private Observer<ArrayList<QuotesItem>> getFavQS = new Observer<ArrayList<QuotesItem>>() {
+        @Override
+        public void onChanged(ArrayList<QuotesItem> quotesItems) {
+            if(quotesItems != null){
+                favQsAdapter.setData(quotesItems);
+            }
+        }
+    };
 }
