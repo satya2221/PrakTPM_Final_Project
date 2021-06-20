@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:padding="5dp">
         <TextView
-            android:id="@+id/quote_body"
+            android:id="@+id/itemlist_quote_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ini Quotenya"
@@ -30,7 +30,7 @@
                 android:textStyle="bold"
                 android:text="--"/>
             <TextView
-                android:id="@+id/quote_author"
+                android:id="@+id/itemlist_quote_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Penulisnya"
