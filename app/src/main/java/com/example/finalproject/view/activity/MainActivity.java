@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import com.example.finalproject.R;
 import com.example.finalproject.view.fragment.AddQuoteFragment;
 import com.example.finalproject.view.fragment.FavQsFragment;
+import com.example.finalproject.view.fragment.ProfileFragment;
 import com.example.finalproject.view.fragment.QuoteFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.menu_add:
                 //selectedFragment = new AddQuoteFragment();
                 loadFragment(new AddQuoteFragment());
+                break;
+            case R.id.menu_profile:
+                loadFragment(new ProfileFragment());
                 break;
         }
         return true;
