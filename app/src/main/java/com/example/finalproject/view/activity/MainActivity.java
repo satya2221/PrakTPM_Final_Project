@@ -35,10 +35,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 //selectedFragment = new FavQsFragment();
                 loadFragment(new FavQsFragment());
                 break;
-            case R.id.menu_quote:
-                //selectedFragment = new QuoteFragment();
-                loadFragment(new QuoteFragment());
-                break;
             case R.id.menu_add:
                 //selectedFragment = new AddQuoteFragment();
                 loadFragment(new AddQuoteFragment());

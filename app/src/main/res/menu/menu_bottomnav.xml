@@ -6,12 +6,7 @@
         android:title="FavQs"
         android:icon="@drawable/favqs"
         app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menu_quote"
-        android:title="Local Quote"
-        android:icon="@drawable/quote"
-        app:showAsAction="ifRoom"
-        />
+
     <item
         android:id="@+id/menu_add"
         android:title="Add Quote"
