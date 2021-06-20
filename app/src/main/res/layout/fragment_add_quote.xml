@@ -20,10 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Submit"
-        />
+        android:text="Submit"        />
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/fragment_quote_rv"
+        android:id="@+id/rv_add_quote"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_list"/>

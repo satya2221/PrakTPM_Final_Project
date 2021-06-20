@@ -47,6 +47,7 @@ public class MainPresenter implements MainContact.presenter {
     public void readData(AppDatabase database) {
         List<DataQuote> list;
         list = database.dao().getData();
+        Log.d("Cobaaaa : ", String.valueOf(list.size()));
         view.getData(list);
     }
 

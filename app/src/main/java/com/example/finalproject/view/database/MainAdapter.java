@@ -17,12 +17,12 @@ import com.example.finalproject.entity.DataQuote;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewHolder> {
-    Context context;
+//    Context context;
     List<DataQuote> list;
     MainContact.view mView;
 
-    public MainAdapter(Context context, List<DataQuote> list, MainContact.view mView) {
-        this.context = context;
+    public MainAdapter(List<DataQuote> list, MainContact.view mView) {
+//        this.context = context;
         this.list = list;
         this.mView = mView;
     }
@@ -30,7 +30,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewHolder> {
     @NonNull
     @Override
     public MainAdapter.viewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
         return new viewHolder(view);
     }
 
@@ -39,6 +39,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.viewHolder> {
         final DataQuote item = list.get(position);
         holder.tv_quote_body.setText(item.getQuote_body());
         holder.tv_quote_author.setText(item.getQuote_author());
+
 
         holder.cvItem.setOnClickListener(new View.OnClickListener() {
             @Override
